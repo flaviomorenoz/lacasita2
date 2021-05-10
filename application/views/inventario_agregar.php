@@ -166,6 +166,8 @@ if($OPERACION == 'U'){
 		let costo_subTotal = document.getElementById("txt_subtotal").value * 1
 		let el_igv = costo_subTotal * IGV
 		
+		console.log("subtotal "+(costo_subTotal+el_igv))
+		console.log("cargo "+cargo)
 		let monto_total = costo_subTotal + el_igv + cargo 
 		let costo_t = document.getElementById("costo_tienda").value
 		let costo_b = document.getElementById("costo_banco").value
@@ -274,7 +276,10 @@ if($OPERACION == 'U'){
 
 	function actualizaVistaDetalle(){
 		//console.log("Entrando a actualizaVistaDetalle")
-		parametros = {token:document.getElementById("token").value}
+		parametros = {
+			token:document.getElementById("token").value,
+			cargo:document.getElementById("cargo_servicio").value
+		}
 		//console.log("El token es:"+document.getElementById("token").value)
 		$.ajax({
 			data: parametros,
@@ -292,7 +297,7 @@ if($OPERACION == 'U'){
 		$.ajax({
 			data: parametros,
 			type: 'post',
-			url:'inventario/eliminar_detalles',
+			url: '<?= base_url('inventario/eliminar_detalles') ?>',
 			success:function(response){
 				actualizaVistaDetalle()
 				console.log("Se elimina...")

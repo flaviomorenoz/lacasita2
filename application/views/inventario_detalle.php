@@ -75,8 +75,16 @@
 
 				echo "<tr style=\"\">";
 				echo "<th style=\"padding:0px\">&nbsp;</th>";
+				echo "<th class=\"subtotales\" style=\"padding-left:10px\">Cargo :</th>";
+				echo "<th class=\"subtotales\">" . number_format($cargo,2) . "</th>";
+				echo "<th style=\"padding:0px\">&nbsp;</th>";
+				echo "<th style=\"padding:0px\">&nbsp;</th>";
+				echo "</tr>";
+
+				echo "<tr style=\"\">";
+				echo "<th style=\"padding:0px\">&nbsp;</th>";
 				echo "<th class=\"subtotales\" style=\"padding-left:10px\">Total :</th>";
-				$total = $suma + ($suma*IGV);
+				$total = $suma + ($suma*IGV) + $cargo;
 				echo "<th class=\"subtotales\">" . number_format($total,2) . "</th>";
 				echo "<th style=\"padding:0px\"></th>";
 				

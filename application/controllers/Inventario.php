@@ -323,6 +323,7 @@ class Inventario extends CI_Controller{
     function detalle(){ // para cargar la parte inferior de Pantalla Movimiento
         //die("Hola");
         $token = $_POST["token"];
+        $cargo = $_POST["cargo"];
         
         //die("token en detalle:".$token);
         $result = $this->inventario_model->carga_detalle($token);
@@ -337,6 +338,7 @@ class Inventario extends CI_Controller{
         //die($query);
         $data["result"] = $result;
         $data["query"]  = $query;
+        $data["cargo"]  = $cargo;
         $this->load->view("inventario_detalle",$data);  // lo llama por Ajax
     }
 
